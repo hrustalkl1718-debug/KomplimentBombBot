@@ -622,7 +622,7 @@ def unsubscribe_daily(update: Update, context: CallbackContext):
     if user_id in subscriptions:
         del subscriptions[user_id]
     
-    if 'job' in context.user_
+    if 'job' in context.user_data:
         context.user_data['job'].schedule_removal()
         del context.user_data['job']
     
@@ -775,4 +775,5 @@ def main():
 if __name__ == '__main__':
 
     main()
+
 
