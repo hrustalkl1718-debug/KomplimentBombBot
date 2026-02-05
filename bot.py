@@ -420,7 +420,7 @@ def send_daily_compliment(context: CallbackContext):
         logger.info(f"Отправлен ежедневный комплимент пользователю {user_id}")
     except Exception as e:
         logger.error(f"Ошибка отправки ежедневного комплимента {user_id}: {e}")
-        if 'job' in context.user_
+        if 'job' in context.user_data:
             context.user_data['job'].schedule_removal()
 
 # ==================== ОБРАБОТЧИКИ КОМАНД ====================
@@ -775,3 +775,4 @@ def main():
 if __name__ == '__main__':
 
     main()
+
