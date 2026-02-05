@@ -385,7 +385,7 @@ def create_compliment_card(text, theme_idx=None):
 # ==================== ФУНКЦИЯ ЕЖЕДНЕВНЫХ КОМПЛИМЕНТОВ ====================
 
 def schedule_daily_compliment(context: CallbackContext, user_id: int, hour: int = 9, minute: int = 0):
-    if 'job' in context.user_
+    if 'job' in context.user_data:
         context.user_data['job'].schedule_removal()
     
     job = context.job_queue.run_daily(
@@ -773,4 +773,5 @@ def main():
     updater.idle()
 
 if __name__ == '__main__':
+
     main()
